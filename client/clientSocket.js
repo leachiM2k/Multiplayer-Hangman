@@ -43,7 +43,7 @@ socket.on('correctGuess', data => {
 
 socket.on('victory', data => {
   game.gameState = data;
-  game.endGame(data, 'Victory');
+  game.endGame(data, 'victory');
 });
 
 socket.on('gameOver', data => {

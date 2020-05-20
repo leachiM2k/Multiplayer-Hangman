@@ -39,13 +39,16 @@ export class Server {
       });
 
       socket.on('newGuess', function(letter) {
+        console.log('*************************** letter', letter);
         let guess = game.newGuess(letter.toLowerCase());
         socket.emit(guess, game.getState(socket.username));
         socket.broadcast.emit(guess, game.getState(socket.username));
         if (guess === 'gameOver' || guess === 'victory') {
-          game = new Game();
-          socket.emit('newGame', game.getState());
-          socket.broadcast.emit('newGame', game.getState());
+          setTimeout(() => {
+            game = new Game();
+            socket.emit('newGame', game.getState());
+            socket.broadcast.emit('newGame', game.getState());
+          }, 5000);
         }
       });
 

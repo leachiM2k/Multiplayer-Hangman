@@ -1,6 +1,6 @@
 export class Game {
   constructor() {
-    this.words = ['melon', 'car', 'airplane', 'pig', 'piano'];
+    this.words = require('./de-nomen.json');
     this.word = this.words[Math.floor(Math.random() * this.words.length)].toLowerCase();
     this.blankWord = this.word
       .replace(/\w/g, '_')
@@ -53,6 +53,7 @@ export class Game {
     this.incorrect++;
     if (this.incorrect >= 6) {
       this.status = 'inactive';
+      this.blankWord = this.word.split('').join(' ');
       return 'gameOver';
     } else {
       return 'incorrectGuess';
@@ -63,6 +64,7 @@ export class Game {
     this.correct++;
     if (this.blankWord.split(' ').join('') === this.word) {
       this.status = 'inactive';
+      this.blankWord = this.word.split('').join(' ');
       return 'victory';
     } else {
       return 'correctGuess';

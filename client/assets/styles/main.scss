@@ -96,3 +96,30 @@ h1 {
 .char7 {
   color: black;
 }
+
+#shim, #end-of-game-message { display: none; }
+
+body.full-screen-message {
+  #end-of-game-message {
+    font-size: 36px;
+    display: block;
+    position: fixed;
+    border: 10px solid yellow;
+    background-color: $backgroundColour;
+    color: $generalFontColour;
+    top: 20%;
+    bottom: 20%;
+    left: 20%;
+    right: 20%;
+  }
+
+  #shim {
+    display: block;
+    position: fixed;
+    background: rgba(50,50,50,.5);
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+  }
+}
